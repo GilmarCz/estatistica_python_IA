@@ -14,5 +14,6 @@ lancamentos = [random.randint(1,6) for _ in range(n_lancamentos)]
 pares_obtidos = [x for x in lancamentos if x in pares]
 prob_empirica = len(pares_obtidos) / n_lancamentos
 
+print("Probabilidade teórica:", prob_teorica)
 print("Probabilidade empírica:", prob_empirica)
 print("Diferença:", abs(prob_teorica - prob_empirica))
