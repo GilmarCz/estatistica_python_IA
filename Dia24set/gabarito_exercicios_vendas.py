@@ -69,3 +69,62 @@ plt.show(block=False)
 
 # === PARTE 4 – INTERPRETAÇÃO ===
 # As respostas aqui são abertas; o professor pode pedir para os alunos escreverem no notebook ou em relatório.
+
+
+
+# === PARTE 5 – ANÁLISE TEMPORAL ===
+# Total de vendas mês
+# Crie uma coluna Mes a partir da coluna Data e calcule o total de Vendas mês.
+# Faça um gráfico de linha mostrando a evolução mensal das vendas.
+
+
+
+df['Mes']=df['Data'].dt.to_period('M')
+vendas_mes = df.groupby('Mes')['Vendas'].sum()
+print("\n===VENDAS POR MÊS ===")
+print(vendas_mes)
+
+plt.figure()
+vendas_mes.plot(kind="line", marker='o')
+
+plt.title("Total de Vendas por Mês")
+plt.title("Vendas por Mês")
+plt.ylabel("Unidades")
+plt.show(block=False)
+
+# === MÉDIA MÓVEL DE 7 DIAS ===
+# Ordenar os dados pelo campo Data
+df_sorted = df.sort_values("Data")
+
+# Criar a média móvel no próprio df_sorted
+df_sorted["MA7"] = df_sorted["Receita Total"].rolling(7).mean()
+
+print("\n=== Receita Total com Média Móvel de 7 dias ===")
+print(df_sorted[["Data", "Receita Total", "MA7"]])
+
+# Gráfico
+plt.figure()
+plt.plot(df_sorted["Data"], df_sorted["Receita Total"], label="Receita Total", alpha=0.5)
+plt.plot(df_sorted["Data"], df_sorted["MA7"], color="red", linewidth=2, label="Média Móvel 7 dias")
+plt.title("Receita Total com Média Móvel de 7 dias")
+plt.xlabel("Data")
+plt.ylabel("Receita Total")
+plt.legend()
+plt.tight_layout()
+plt.show(block=False)
+
+input("Pressione Enter para fechar tudo...")
+plt.close('all')
+
+# Produto mais vendido por região
+
+# Agrupar por Região e Produto, somando as Vendas
+vendas_por_regiao = df.groupby(["Região", "Produto"])["Vendas"].sum().reset_index()
+print("\n=== Vendas por região ===")
+print(vendas_por_regiao)
+
+# Para cada região, pegar o produto com mais vendas
+produto_top_regiao = vendas_por_regiao.loc[vendas_por_regiao.groupby("Região")["Vendas"].idxmax()]
+
+print("\n=== Produto mais vendido por região ===")
+print(produto_top_regiao)
