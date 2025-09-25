@@ -11,7 +11,7 @@ df = pd.read_csv("dados1.csv", parse_dates=["Data"])
 # df.info() imprime no console informação sobre o DataFrame (colunas, tipos, non-null)
 print("Informações do DataFrame (df.info()):")
 df.info()                         # retorna None, mas imprime o resumo no stdout
-
+print("\n")
 # Mostra dimensão (linhas, colunas)
 print("\nDimensão:", df.shape)
 
@@ -77,7 +77,7 @@ plt.show(block=False)
 
 # Barra: receita média por companhia (estimator=np.mean calcula a média para cada grupo)
 plt.figure()
-sns.barplot(x="Companhia", y="Receita (R$)", data=df, estimator=np.mean, ci=None)
+sns.barplot(x="Companhia", y="Receita (R$)", data=df, estimator=np.mean, errorbar=None)
 plt.title("Receita Média por Companhia")
 plt.xlabel("Companhia")
 plt.ylabel("Receita média (R$)")
