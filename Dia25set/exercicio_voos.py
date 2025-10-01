@@ -163,7 +163,67 @@ plt.xlabel("Companhia")
 plt.ylabel("Ocupação média (%)")
 plt.show(block=False)
 
+
+df.groupby(['Companhia', 'Aeroporto Origem', 'Aeroporto Destino']).agg({ 'Passageiros': 'sum', 'Receita (R$)': 'sum', 'Ocupação (%)': 'mean' }).reset_index()
+
+# === EVOLUÇÃO MENSAL DO TOTAL DE PASSAGEIROS POR COMPANHIA ===
+# Agrupa os dados por mês e companhia
+passageiros_mes = (
+    df.groupby(["Mes", "Companhia"])["Passageiros"]
+    .sum()
+    .reset_index()
+)
+
+# Converter Mes de Period para string (ex: "2023-01")
+passageiros_mes["Mes"] = passageiros_mes["Mes"].astype(str)
+
+print("\n=== Total de passageiros por mês e companhia ===")
+print(passageiros_mes.head())
+
+# Gráfico
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=passageiros_mes, x="Mes", y="Passageiros", hue="Companhia", marker="o")
+plt.title("Evolução Mensal do Total de Passageiros por Companhia")
+plt.xlabel("Mês")
+plt.ylabel("Total de Passageiros")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show(block=False)
+
+
 # === FINALIZAÇÃO: mantém os gráficos abertos até o usuário pressionar Enter ===
 # Em ambientes interativos, plt.show() já pode ser suficiente. Aqui usamos input para permitir inspeção.
 input("Pressione Enter para fechar os gráficos...")
 plt.close('all')
+
+
+
+# Criar coluna "Rota"
+df["Rota"] = df["Aeroporto Origem"] + " → " + df["Aeroporto Destino"]
+
+# Receita por passageiro
+df["Receita_por_Passageiro"] = df["Receita (R$)"] / df["Passageiros"]
+
+# Agrupamento por Companhia e Rota
+rotas = df.groupby(["Companhia", "Rota"]).agg({
+    "Ocupação (%)": "mean",
+    "Receita_por_Passageiro": "mean"
+}).reset_index()
+
+# Ordenar pelas rotas mais eficientes (receita por passageiro, descrescente)
+top5_rotas = rotas.sort_values("Receita_por_Passageiro", ascending=False).head(5)
+
+print("\n=== Top 5 Rotas mais eficientes por Receita por Passageiro ===")
+print(top5_rotas)
+
+# Garantir que Data é datetime
+df["Data"] = pd.to_datetime(df["Data"])
+
+# Criar coluna de mês (no formato AAAA-MM)
+df["Mes"] = df["Data"].dt.to_period("M")
+
+# Agrupar por mês e companhia
+passageiros_mes = df.groupby(["Mes", "Companhia"])["Passageiros"].sum().reset_index()
+
+print("\n=== Total de passageiros por mês e companhia ===")
+print(passageiros_mes.head())
