@@ -1,0 +1,231 @@
+# -----------------------------
+
+# CAPÍTULO 1 – PROBABILIDADE
+
+# -----------------------------
+
+print("\n=== CAPÍTULO 1 – PROBABILIDADE ===")
+
+
+# Exercício 1 – Urna com bolas coloridas
+
+total_bolas = 5 + 7
+
+prob_vermelha = 5 / total_bolas
+
+print("Ex1 - Probabilidade de tirar vermelha:", prob_vermelha)
+
+
+# Exercício 2 – Lançamento de um dado
+
+favoraveis = 3 # números maiores que 3: 4,5,6
+
+prob_dado = favoraveis / 6
+
+print("Ex2 - Probabilidade de sair > 3:", prob_dado)
+
+
+# Exercício 3 – Lançamento de duas moedas
+
+prob_uma_cara = 2 / 4
+
+print("Ex3 - Probabilidade de 1 cara:", prob_uma_cara)
+
+
+# Exercício 4 – Probabilidade condicional
+
+prob_verde_apos_vermelha = 2 / 4
+
+print("Ex4 - Probabilidade próxima bola verde:", prob_verde_apos_vermelha)
+
+
+
+# -----------------------------
+
+# CAPÍTULO 2 – ESTATÍSTICA DESCRITIVA COM PANDAS
+
+# -----------------------------
+
+print("\n=== CAPÍTULO 2 – ESTATÍSTICA DESCRITIVA COM PANDAS ===")
+
+import pandas as pd
+
+
+# Exercício 5
+
+dados1 = pd.Series([10, 15, 20, 20, 25, 30, 35])
+
+print("Ex5 - Média:", dados1.mean())
+
+print("Ex5 - Mediana:", dados1.median())
+
+print("Ex5 - Moda:", dados1.mode()[0])
+
+
+# Exercício 6
+
+dados2 = pd.Series([2, 4, 4, 4, 5, 5, 7, 9])
+
+print("Ex6 - Variância:", dados2.var())
+
+print("Ex6 - Desvio padrão:", dados2.std())
+
+
+# Exercício 7
+
+dados3 = pd.Series([5, 7, 8, 5, 10, 12, 15])
+
+print("Ex7 - Média:", dados3.mean())
+
+print("Ex7 - Mediana:", dados3.median())
+
+print("Ex7 - Min:", dados3.min())
+
+print("Ex7 - Max:", dados3.max())
+
+print("Ex7 - Amplitude:", dados3.max() - dados3.min())
+
+
+
+
+
+
+# -----------------------------
+
+# CAPÍTULO 3 – FUNÇÕES E EQUAÇÕES
+
+
+8. import numpy as np
+
+import matplotlib.pyplot as plt
+
+
+# Valores de x de 0.1 a 10 (evitando log(0))
+
+x = np.linspace(0.1, 10, 100)
+
+y = np.sin(x) + np.log(x)
+
+
+# Plotando o gráfico
+
+plt.plot(x, y)
+
+plt.title("y = sin(x) + log(x)")
+
+plt.xlabel("x")
+
+plt.ylabel("y")
+
+plt.grid(True)
+
+plt.show()
+
+
+# -----------------------------
+
+
+# -----------------------------
+
+# CAPÍTULO 4 – REGRESSÃO LINEAR
+
+# -----------------------------
+
+print("\n=== CAPÍTULO 4 – REGRESSÃO LINEAR ===")
+
+import numpy as np
+
+from sklearn.linear_model import LinearRegression
+
+
+# Exercício 9 – Horas de estudo vs notas
+
+X1 = np.array([1, 2, 3, 4, 5]).reshape(-1,1)
+
+y1 = np.array([2, 4, 5, 4, 6])
+
+modelo1 = LinearRegression()
+
+modelo1.fit(X1, y1)
+
+print("Ex9 - Coeficiente angular:", modelo1.coef_[0])
+
+print("Ex9 - Intercepto:", modelo1.intercept_)
+
+
+# Exercício 10 – Preço vs tamanho
+
+X2 = np.array([50, 60, 70, 80, 90]).reshape(-1,1)
+
+y2 = np.array([150, 200, 210, 240, 280])
+
+modelo2 = LinearRegression()
+
+modelo2.fit(X2, y2)
+
+preco_100m2 = modelo2.predict(np.array([[100]]))[0]
+
+print("Ex10 - Coeficiente angular:", modelo2.coef_[0])
+
+print("Ex10 - Intercepto:", modelo2.intercept_)
+
+print("Ex10 - Preço estimado para 100 m²:", preco_100m2)
+
+
+# -----------------------------
+
+# CAPÍTULO 5 – VISUALIZAÇÕES COM MATPLOTLIB E SEABORN
+
+# -----------------------------
+
+print("\n=== CAPÍTULO 5 – VISUALIZAÇÕES ===")
+
+import matplotlib.pyplot as plt
+
+import seaborn as sns
+
+
+# Exercício 11 – Histograma
+
+dados_hist = np.random.normal(loc=60, scale=15, size=1000)
+
+
+# Matplotlib
+
+plt.hist(dados_hist, bins=20, color='skyblue', edgecolor='black')
+
+plt.title("Ex11 - Histograma Matplotlib")
+
+plt.show()
+
+
+# Seaborn
+
+sns.histplot(dados_hist, bins=20, kde=True, color='orange')
+
+plt.title("Ex11 - Histograma Seaborn")
+
+plt.show()
+
+# Exercício 12 – Gráfico de dispersão
+
+X_scatter = [1,2,3,4,5]
+
+Y_scatter = [2,4,5,4,6]
+
+sns.scatterplot(x=X_scatter, y=Y_scatter)
+
+plt.title("Ex12 - Scatter Plot Seaborn")
+
+plt.show()
+
+
+# Exercício 13 – Boxplot
+
+dados_box = [7,8,5,6,12,14,15,8,9,10]
+
+sns.boxplot(y=dados_box)
+
+plt.title("Ex13 - Boxplot Seaborn")
+
+plt.show()

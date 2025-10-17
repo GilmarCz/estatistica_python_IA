@@ -4,7 +4,7 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
 # Ler o CSV
-dados = pd.read_csv('Dia10set/casas.csv')
+dados = pd.read_csv('casas.csv')
 
 # Separar as variáveis
 X = dados[['Area']]   # Variável independente

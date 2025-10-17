@@ -1,0 +1,41 @@
+# --- Banco de Perguntas: Estatística ---
+perguntas_estat = [
+    {"pergunta": "Qual medida representa a média dos quadrados dos desvios?",
+     "opcoes": ["A) Variância", "B) Desvio padrão", "C) Moda", "D) Mediana"],
+     "correta": "A"},
+    {"pergunta": "Distribuição mais usada para modelar eventos raros:",
+     "opcoes": ["A) Normal", "B) Poisson", "C) Binomial", "D) Uniforme"],
+     "correta": "B"},
+    {"pergunta": "O valor que divide a amostra ao meio é chamado de:",
+     "opcoes": ["A) Média", "B) Mediana", "C) Moda", "D) Variância"],
+     "correta": "B"},
+    {"pergunta": "Se todos os valores têm a mesma probabilidade de ocorrer, temos a distribuição:",
+     "opcoes": ["A) Normal", "B) Uniforme", "C) Binomial", "D) Poisson"],
+     "correta": "B"},
+    {"pergunta": "O desvio padrão mede:",
+     "opcoes": ["A) Tendência central", "B) Grau de dispersão", "C) Probabilidade", "D) Frequência"],
+     "correta": "B"},
+    {"pergunta": "Qual destas NÃO é uma medida de tendência central?",
+     "opcoes": ["A) Média", "B) Moda", "C) Variância", "D) Mediana"],
+     "correta": "C"},
+    {"pergunta": "Em um histograma, a área total representa:",
+     "opcoes": ["A) Média", "B) Frequência total", "C) Probabilidade total", "D) Mediana"],
+     "correta": "C"},
+    {"pergunta": "Quando a média é maior que a mediana, a distribuição tende a ser:",
+     "opcoes": ["A) Simétrica", "B) Assimétrica à esquerda", "C) Assimétrica à direita", "D) Normal"],
+     "correta": "C"},
+    {"pergunta": "O Teorema Central do Limite afirma que:",
+     "opcoes": ["A) Toda variável é normal", "B) Médias amostrais tendem à normalidade", "C) A variância é sempre constante", "D) A moda é igual à mediana"],
+     "correta": "B"},
+    {"pergunta": "Probabilidade de evento impossível é:",
+     "opcoes": ["A) 1", "B) 0", "C) 0,5", "D) Depende da amostra"],
+     "correta": "B"},
+]
+
+# --- Banco de Perguntas: Machine Learning ---
+perguntas_ml = [
+    {"pergunta": "O que é overfitting?",
+     "opcoes": ["A) Modelo que generaliza bem", "B) Modelo que aprende ruído do treino", "C) Modelo que não aprende nada", "D) Nenhuma das anteriores"],
+     "correta": "B"},
+    
+]

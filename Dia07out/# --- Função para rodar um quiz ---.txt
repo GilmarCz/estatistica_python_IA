@@ -1,0 +1,14 @@
+# --- Função para rodar um quiz ---
+def quiz(perguntas):
+    score = 0
+    for i, p in enumerate(perguntas, 1):
+        print(f"\nPergunta {i}: {p['pergunta']}")
+        for op in p['opcoes']:
+            print(op)
+        resposta = input("Sua resposta: ").strip().upper()
+        if resposta == p['correta']:
+            print("✅ Correto!")
+            score += 1
+        else:
+            print(f"❌ Errado! Resposta correta: {p['correta']}")
+    print(f"\nPontuação final: {score}/{len(perguntas)}")

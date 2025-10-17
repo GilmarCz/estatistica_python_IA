@@ -5,7 +5,7 @@ from sklearn.preprocessing import PolynomialFeatures
 import numpy as np
 
 # Ler o CSV com dados não lineares
-dados = pd.read_csv('Dia10set/area_preco.csv')
+dados = pd.read_csv('area_preco.csv')
 X = dados[['Area']]
 y = dados['Preco']
 

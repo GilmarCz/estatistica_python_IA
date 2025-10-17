@@ -54,5 +54,5 @@ def estatisticas_descritivas(csv_path):
 
 
 # ----------------- EXEMPLO DE USO -----------------
-estatisticas = estatisticas_descritivas("Dia10set/dataset_exemplo.csv")
+estatisticas = estatisticas_descritivas("dataset_exemplo.csv")
 print(estatisticas)

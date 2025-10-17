@@ -5,7 +5,7 @@ from sklearn.preprocessing import PolynomialFeatures
 import numpy as np
 
 # Ler os dados
-dados = pd.read_csv('Dia10set/casas.csv')
+dados = pd.read_csv('casas.csv')
 X = dados[['Area']]
 y = dados['Preco']
 

@@ -9,5 +9,5 @@ simulacoes = [random.choice(baralho) for _ in range(10000)]
 cartas_copas = [carta for carta in simulacoes if "copas" in carta]
 
 prob = len(cartas_copas) / len(simulacoes)
-print("A probabilidade é:", prob, "\n")
+print("A probabilidade é:", prob)
 

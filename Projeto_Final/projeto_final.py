@@ -255,13 +255,13 @@ def menu():
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
-            abrir_pdf(r"C:\Users\gilmar.2970\Desktop\UC4_Estatistica\Dia25set\Relatorio_Voos_Com_exercicio_extra.pdf")
+            abrir_pdf(r"C:\Users\gilgb\OneDrive\Área de Trabalho\pyton\python_IA\Atividades_Pyton\estatistica_python_IA\Projeto_Final\Exercicios_Resolvidos.pdf")
         elif opcao == "2":
             quiz_estatistica()
         elif opcao == "3":
             quiz_ml()
         elif opcao == "4":
-            abrir_pdf(r"C:\Users\gilmar.2970\Desktop\UC4_Estatistica\Projeto_Final\pesquisa_ia.pdf")
+            abrir_pdf(r"C:\Users\gilgb\OneDrive\Área de Trabalho\pyton\python_IA\Atividades_Pyton\estatistica_python_IA\Inteligência Artificial na Indústria 4.0.pdf")
         elif opcao == "0":
             print("Encerrando o programa...")
             break
